@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>升仙</title>
+	<meta charset="utf-8">
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<style type="text/css">
+		.ul2 li{
+			height: 42px;
+		}
+		.ul2 li:first-child{
+			height: 82px;
+		}
+	</style>
+</head>
+<body ng-app="app">
+<div class="main" ng-controller="aa">
+	<div class="container-fluid">
+	<div class="row">
+			<div class="col-md-2 col-xs-2 Left">
+				<div class="row">
+					<ul class="text-right ul1">
+						<li ng-click="aa($event)" id="bbbb" class="li1">肉品</li>
+						<li ng-click="aa($event)" class="li2">水产</li>
+						<li ng-click="aa($event)" class="li3">蔬菜</li>
+						<li ng-click="aa($event)" class="li4">干货杂粮</li>
+						<li ng-click="aa($event)" class="li5">糕点</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-10 col-sm-10 Right">
+				<div class="row">
+					<div class="content" ng-switch="toggle">
+						<div class="div1" ng-switch-when="li1">
+								<div class="col-md-4 top text-left" ng-repeat="x in arr[0].content">
+									<div class="img1"><img ng-src="{{x.src}}" class="img-responsive" ></div>
+									<h5>{{x.name}}</h5>
+									<p>{{x.price}}元一份</p>
+									<p>{{x.rS}}人买过</p>
+									<div class="jia" data-label="{{x}}" ng-click="choose($event)"><img src="./images/btnplus.png"></div>
+								</div>
+										
+						</div>
+						<div class="div1" ng-switch-when="li2">
+							<div class="col-md-4 top text-left" ng-repeat="x in arr[1].content">
+									<div class="img1"><img ng-src="{{x.src}}" class="img-responsive" ></div>
+									<h5>{{x.name}}</h5>
+									<p>{{x.price}}元一份</p>
+									<p>{{x.rS}}人买过</p>
+									<div class="jia" data-label="{{x}}" ng-click="choose($event)"><img src="./images/btnplus.png"></div>
+								</div>
+								
+						</div>
+						<div class="div1" ng-switch-when="li3">
+							<div class="col-md-4 top text-left" ng-repeat="x in arr[2].content">
+									<div class="img1"><img ng-src="{{x.src}}" class="img-responsive" ></div>
+									<h5>{{x.name}}</h5>
+									<p>{{x.price}}元一份</p>
+									<p>{{x.rS}}人买过</p>
+									<div class="jia" data-label="{{x}}" ng-click="choose($event)"><img src="./images/btnplus.png"></div>
+								</div>
+								
+						</div>
+						<div class="div1" ng-switch-when="li4">
+							
+								<div class="col-md-4 top text-left" ng-repeat="x in arr[3].content">
+									<div class="img1"><img ng-src="{{x.src}}" class="img-responsive" ></div>
+									<h5>{{x.name}}</h5>
+									<p>{{x.price}}元一份</p>
+									<p>{{x.rS}}人买过</p>
+									<div class="jia" data-label="{{x}}" ng-click="choose($event)"><img src="./images/btnplus.png"></div>
+								</div>
+								
+						</div>
+						<div class="div1" ng-switch-when="li5">
+							<div class="col-md-4 top text-left" ng-repeat="x in arr[4].content">
+									<div class="img1"><img ng-src="{{x.src}}" class="img-responsive" ></div>
+									<h5>{{x.name}}</h5>
+									<p>{{x.price}}元一份</p>
+									<p>{{x.rS}}人买过</p>
+									<div class="jia" data-label="{{x}}" ng-click="choose($event)"><img src="./images/btnplus.png"></div>
+								</div>
+								
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<div class="btn btn-success lanzi" ng-click="bb($event)">菜篮子</div>
+	</div>
+	<div class="main2" ng-show="cc">
+		<div class="bai">
+			<ul class="list-group ul2">
+				<li class="list-group-item">
+					<h3 class="h3">菜篮子</h3>
+					<div class="btn btn-success xuan" ng-click="dd($event)">选菜</div>
+					<div class="btn btn-default kong">清空</div>
+				</li>
+				<li class="list-group-item" ng-show="chooseArr">亲，还没选到心仪的菜喔，点加菜开始选菜吧！</li>
+				<li class="list-group-item" ng-repeat="x in chooseArr">
+					<span class="col-md-2">{{x.name}}</span>
+					<span class="col-md-2">单价：{{x.price}}</span>
+					<span class="col-md-1" ng-click="delete($event)" data-id="{{x.id}}">-</span>
+					<span class="col-md-1">{{x.chooseNum}}</span>
+					<span class="col-md-2" ng-click="add($event)" data-id="{{x.id}}">+</span>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<script type="text/javascript" src="./js/index.js" charset="utf-8"></script>
+
+
+</body>
+</html>
